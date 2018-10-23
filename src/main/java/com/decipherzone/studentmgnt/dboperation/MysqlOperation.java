@@ -2,19 +2,21 @@ package com.decipherzone.studentmgnt.dboperation;
 
 import com.decipherzone.studentmgnt.config.JavaMysqlDbConnection;
 import com.decipherzone.studentmgnt.entity.Student;
-import com.mongodb.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.Iterator;
+import java.sql.ResultSet;
+
 
 public class MysqlOperation {
-    JavaMysqlDbConnection javaMysqlDbConnection=new JavaMysqlDbConnection();
-    Connection connection=javaMysqlDbConnection.javaMysqlConnection();
+    private JavaMysqlDbConnection javaMysqlDbConnection;
+    private Connection connection;
+
+    public MysqlOperation(){
+        this.javaMysqlDbConnection=new JavaMysqlDbConnection();
+        this.connection=javaMysqlDbConnection.javaMysqlConnection();
+    }
 
     public void addStudentSqlDb(Student student)
     {
@@ -47,14 +49,20 @@ public class MysqlOperation {
     }
     public void retrieveStudentSqlDb()
     {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from student");
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next())
+            {
+                int id=resultSet.getInt("StudentId");
+                String name=resultSet.getString("Name");
+                int age =resultSet.getInt("Age");
+                System.out.println(" Id : "+id+" Name : "+name+" Age : "+age);
+            }
 
-
-
+        }catch (Exception ex){ex.printStackTrace();}
     }
 
-
-
-    }
     public void updateStudentSqlDb(int id , Student student)
     {
         try {
