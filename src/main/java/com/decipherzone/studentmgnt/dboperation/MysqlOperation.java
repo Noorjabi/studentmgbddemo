@@ -38,7 +38,7 @@ public class MysqlOperation {
     public void deleteStudentSqlDb(int id )
     {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("delete  from student where id="+id);
+            PreparedStatement preparedStatement = connection.prepareStatement("delete student where id="+id);
             preparedStatement.executeUpdate();
             preparedStatement.close();
             System.out.println("Successfully deleted");
