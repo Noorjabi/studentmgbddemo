@@ -9,7 +9,6 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
-
 import java.util.Iterator;
 
 public class MongoOperation {
@@ -25,7 +24,10 @@ public class MongoOperation {
      * purpose: adding student into database
      *
      * @param student
-     * @param
+     * implementation:Accessing the database
+     *              Retrieving a collection
+     *              Retrieving the documents after insertion
+     *              insert the document
      */
 
     public void addStudentDb(Student student) {
@@ -126,7 +128,9 @@ public class MongoOperation {
     /**
      * purpose:update student into database
      *
-     * @param id implementation:
+     * @param id
+     * @param student
+     * implementation:
      *           Accessing the database
      *           Retrieving a collection
      *           Retrieving the documents after updation

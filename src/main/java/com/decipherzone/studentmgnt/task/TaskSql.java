@@ -4,7 +4,7 @@ import com.decipherzone.studentmgnt.dboperation.MysqlOperation;
 import com.decipherzone.studentmgnt.entity.Student;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.sql.Connection;
+
 
 public class TaskSql {
     private  static int id =0;

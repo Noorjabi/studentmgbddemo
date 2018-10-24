@@ -1,13 +1,9 @@
 
-import com.decipherzone.studentmgnt.config.JavaMongoDbConnection;
-import com.decipherzone.studentmgnt.config.JavaMysqlDbConnection;
 import com.decipherzone.studentmgnt.task.TaskSql;
 import com.decipherzone.studentmgnt.task.Task;
-import com.mongodb.MongoClient;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.sql.Connection;
+
 
 /*
     main class
@@ -73,7 +69,7 @@ public class Mymain {
                     } else if (option == 4) {
                         taskSql.removeStudent();
                     } else if (option == 5) {
-                        System.exit(0);
+
 
 
                     } else
@@ -112,7 +108,7 @@ public class Mymain {
                         task.removeStudent();
                     } else if (option == 5) {
 
-                        System.exit(0);
+
                     } else
                         System.out.println("Wrong choice");
 

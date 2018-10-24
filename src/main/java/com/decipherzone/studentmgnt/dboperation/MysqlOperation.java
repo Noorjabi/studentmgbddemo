@@ -2,8 +2,6 @@ package com.decipherzone.studentmgnt.dboperation;
 
 import com.decipherzone.studentmgnt.config.JavaMysqlDbConnection;
 import com.decipherzone.studentmgnt.entity.Student;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +16,10 @@ public class MysqlOperation {
         this.connection=javaMysqlDbConnection.javaMysqlConnection();
     }
 
+    /**
+     * purpose: add student in Sql database
+     * @param student
+     */
     public void addStudentSqlDb(Student student)
     {
 
@@ -35,10 +37,16 @@ public class MysqlOperation {
             e.printStackTrace();
         }
     }
+
+    /**
+     * purpose:delete student in sql database
+     * @param id
+     */
     public void deleteStudentSqlDb(int id )
     {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("delete student where id="+id);
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from student where StudentId=?");
+            preparedStatement.setInt(1,id);
             preparedStatement.executeUpdate();
             preparedStatement.close();
             System.out.println("Successfully deleted");
@@ -47,6 +55,10 @@ public class MysqlOperation {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * purpose:accessing student from sql database
+     */
     public void retrieveStudentSqlDb()
     {
         try {
@@ -63,6 +75,11 @@ public class MysqlOperation {
         }catch (Exception ex){ex.printStackTrace();}
     }
 
+    /**
+     * purpose:update student in sql database
+     * @param id
+     * @param student
+     */
     public void updateStudentSqlDb(int id , Student student)
     {
         try {

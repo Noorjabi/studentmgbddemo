@@ -25,7 +25,7 @@ public class Task {
      * Implementation note:student id is generated
      * student name input from user
      * student age input from user
-     * calling  method addstudentin database
+     * calling  method add student in database
      * <p>
      * exception can occur because user may enter invalid input
      */
